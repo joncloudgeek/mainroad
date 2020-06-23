@@ -19,6 +19,14 @@
 		<div class="list__meta meta">{{ . }}</div>
 		{{- end }}
 	</header>
+	{{- if .Params.images }}
+	{{ $imgUrl := index (.Params.images) 0 }}
+	<figure>
+		<a href="{{ .Permalink }}">
+			<img src="{{ $imgUrl | relURL }}" alt="{{ .Title }}" />
+		</a>
+	</figure>
+	{{- end }}
 	<div class="content list__excerpt post__content clearfix">
 		{{ .Summary }}
 	</div>
